@@ -29,6 +29,10 @@ public class Reservation extends AbstractBaseEntity{
     @Column(name = "isCleaning")
     private Boolean isCleaning;
 
+    public Reservation(){
+
+    }
+
     public Client getClient() {
         return client;
     }

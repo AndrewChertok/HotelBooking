@@ -28,10 +28,14 @@ public class Room extends AbstractBaseEntity{
     private RoomType roomType;
 
     @Column(name = "breakfast")
-    private Integer breakfast;
+    private BigDecimal breakfast;
 
     @Column(name = "cleaning")
-    private Integer cleaning;
+    private BigDecimal cleaning;
+
+    public Room(){
+
+    }
 
     public BigDecimal getPricePerNight() {
         return pricePerNight;
@@ -65,19 +69,19 @@ public class Room extends AbstractBaseEntity{
         this.number = number;
     }
 
-    public Integer getBreakfast() {
+    public BigDecimal getBreakfast() {
         return breakfast;
     }
 
-    public void setBreakfast(Integer breakfast) {
+    public void setBreakfast(BigDecimal breakfast) {
         this.breakfast = breakfast;
     }
 
-    public Integer getCleaning() {
+    public BigDecimal getCleaning() {
         return cleaning;
     }
 
-    public void setCleaning(Integer cleaning) {
+    public void setCleaning(BigDecimal cleaning) {
         this.cleaning = cleaning;
     }
 

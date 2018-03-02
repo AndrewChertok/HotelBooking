@@ -34,7 +34,7 @@ public class DataJpaClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public Client getByLastName(String lastName) {
-        return clientRepository.getByLastName(lastName);
+    public Client getByEmail(String email) {
+        return clientRepository.getByEmail(email);
     }
 }

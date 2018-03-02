@@ -42,6 +42,11 @@ public class DataJpaReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
+    public List<Reservation> getAllByHotel(Long hotelId) {
+        return reservationRepository.getAllByHotel(hotelId);
+    }
+
+    @Override
     public Reservation getByClientId(Long clientId) {
         return reservationRepository.getByClientId(clientId);
     }

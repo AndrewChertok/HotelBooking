@@ -22,12 +22,16 @@ public interface CrudReservationRepository extends JpaRepository<Reservation, Lo
     @Override
     void delete(Long id);
 
+    //TODO delete comment
+    //SELECT * FROM Rooms WHERE ROOMS.HOTEL_ID=1006 AND ROOMS.ROOM_ID NOT IN (SELECT Reservations.ROOM_ID FROM Reservations)
+    @Query("SELECT r FROM Room r WHERE r.hotel.id=:hotelId AND r.id NOT IN (SELECT res.room.id FROM Reservation res)")
+    List<Reservation> getAllByHotel(@Param("hotelId")Long hotelId);
 
     @Query("SELECT res FROM Reservation res WHERE res.client.id=:clientId")
     Reservation getByClientId(@Param("clientId") Long clientId);
 
 
-    @Query("SELECT res FROM Reservation res WHERE r.room.hotel=(SELECT h FROM Hotel WHERE h.id=:hotelId) AND r.checkInDate>=:checkin AND r.checkOutDate<=:checkout ORDER BY r.checkInDate")
+    @Query("SELECT r FROM Room r WHERE r.hotel.id=:hotelId AND r.id NOT IN (SELECT res.room.id FROM Reservation res WHERE res.checkInDate>=:checkin AND res.checkOutDate<=:checkout) ORDER BY r.number")
     List<Reservation> getBetweenDates(@Param("hotelId") Long hotelId, @Param("checkin") Date checkin, @Param("checkout") Date checkout);
 
 }

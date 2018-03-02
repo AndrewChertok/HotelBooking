@@ -1,14 +1,17 @@
 package com.hotelbooking.service;
 
+import com.hotelbooking.model.Reservation;
 import com.hotelbooking.model.Room;
+import com.hotelbooking.model.RoomType;
 
+import java.util.Date;
 import java.util.List;
 
 public interface HotelService {
 
-    List<Room> getAvailableRooms();
+    List<Room> getAvailableRooms(Long hotelId, Date checkin, Date checkout);
 
-    List<Room> filterRoomsByCategory();
+    List<Room> filterRoomsByCategory(Long hotelId, RoomType roomType);
 
-    List<Room> getReservations();
+    List<Reservation> getReservations(Long hotelId);
 }

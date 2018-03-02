@@ -23,6 +23,10 @@ public class Client extends AbstractBaseEntity{
     @JoinColumn(name = "contact_id", nullable = false)
     private Contact contact;
 
+    public Client(){
+
+    }
+
     public Contact getContact() {
         return contact;
     }

@@ -45,8 +45,8 @@ CREATE TABLE rooms (
   room_id            BIGINT                   DEFAULT global_seq.nextval PRIMARY KEY,
   hotel_id           BIGINT                   NOT NULL,
   number             INT                      NOT NULL,
-  breakfast          INT                      NOT NULL,
-  cleaning           INT                      NOT NULL,
+  breakfast          BIGINT                   NOT NULL,
+  cleaning           BIGINT                   NOT NULL,
   price_per_night    DECIMAL                  NOT NULL,
   FOREIGN KEY (hotel_id) REFERENCES hotels (hotel_id) ON DELETE CASCADE ON UPDATE CASCADE
 );

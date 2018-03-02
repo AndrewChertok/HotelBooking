@@ -19,6 +19,10 @@ public class Hotel extends AbstractBaseEntity{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
     private List<Room> rooms;
 
+    public Hotel(){
+
+    }
+
     public String getName() {
         return this.name;
     }

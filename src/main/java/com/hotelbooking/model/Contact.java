@@ -21,6 +21,10 @@ public class Contact extends AbstractBaseEntity{
     @Column(name = "country")
     private String country;
 
+    public Contact(){
+
+    }
+
     public String getPhone() {
         return this.phone;
     }
