@@ -1,15 +1,19 @@
 package com.hotelbooking.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hotelbooking.HasId;
 import org.hibernate.Hibernate;
 
 import javax.persistence.AccessType;
 import javax.persistence.*;
+import java.io.Serializable;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public abstract class AbstractBaseEntity implements HasId{
-    public static final int START_SEQ = 100000;
+    public static final int START_SEQ = 1000;
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = START_SEQ)

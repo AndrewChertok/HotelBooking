@@ -13,11 +13,11 @@ public interface CrudHotelRepository extends JpaRepository<Hotel, Long> {
     Hotel findOne(Long id);
 
     @Override
+    @Transactional
     Hotel save(Hotel hotel);
 
     @Override
+    @Transactional
     void delete(Long id);
 
-    @Query("SELECT r.hotel FROM Room r WHERE r.id=:roomId")
-    Hotel getByRoomId(@Param("roomId")Long roomId);
 }

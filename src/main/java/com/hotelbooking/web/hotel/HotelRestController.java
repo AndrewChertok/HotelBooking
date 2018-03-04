@@ -4,7 +4,11 @@ package com.hotelbooking.web.hotel;
 import com.hotelbooking.model.Reservation;
 import com.hotelbooking.model.Room;
 import com.hotelbooking.model.RoomType;
+import com.hotelbooking.util.RoomTypeEnumConverter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -18,14 +22,14 @@ public class HotelRestController extends HotelAbstractController{
 
     @Override
     @GetMapping("/{id}")
-    public List<Room> getAvailableRooms(@PathVariable("id") Long hotelId, @RequestParam("in") Date checkin, @RequestParam("out") Date checkout){
+    public List<Room> getAvailableRooms(@PathVariable("id") Long hotelId, @RequestParam("in") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkin, @RequestParam("out") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkout){
         return super.getAvailableRooms(hotelId, checkin, checkout);
     }
 
     @Override
     @GetMapping("/filter/{id}")
-    public List<Room> filterRoomsByCategory(@PathVariable("id") Long hotelId, @RequestParam("type") RoomType roomType){
-        return super.filterRoomsByCategory(hotelId, roomType);
+    public List<Room> filterByCategory(@PathVariable("id") Long hotelId, @RequestParam("type") RoomType roomType){
+        return super.filterByCategory(hotelId, roomType);
     }
 
     @Override

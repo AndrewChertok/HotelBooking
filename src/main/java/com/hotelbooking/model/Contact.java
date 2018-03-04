@@ -25,6 +25,19 @@ public class Contact extends AbstractBaseEntity{
 
     }
 
+    public Contact(Long id, String phone, String email, String address, String city, String country) {
+        super(id);
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+    }
+
+    public Contact(String phone, String email, String address, String city, String country) {
+       this(null, phone, email, address, city, country);
+    }
+
     public String getPhone() {
         return this.phone;
     }

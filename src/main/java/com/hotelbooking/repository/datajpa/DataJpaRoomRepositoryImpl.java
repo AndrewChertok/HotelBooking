@@ -5,6 +5,8 @@ import com.hotelbooking.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -43,8 +45,10 @@ public class DataJpaRoomRepositoryImpl implements RoomRepository {
         return roomRepository.getAllByHotel(hotelId);
     }
 
+
     @Override
     public List<Room> getUnoccupiedRooms(Long hotelId, Date checkin, Date checkout) {
         return roomRepository.getUnoccupiedRooms(hotelId, checkin, checkout);
     }
+
 }

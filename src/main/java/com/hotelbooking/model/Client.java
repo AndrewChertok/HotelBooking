@@ -19,12 +19,22 @@ public class Client extends AbstractBaseEntity{
     @NotBlank
     private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contact_id", nullable = false)
     private Contact contact;
 
     public Client(){
 
+    }
+
+    public Client(Long id, String firstName, String lastName){
+        super(id);
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
+
+    public Client(String firstName, String lastName){
+        this(null, firstName, lastName);
     }
 
     public Contact getContact() {

@@ -11,6 +11,4 @@ public interface HotelRepository {
 
     Hotel get(Long id);
 
-    Hotel getByRoomId(Long roomId);
-
 }

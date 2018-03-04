@@ -1,18 +1,21 @@
 package com.hotelbooking.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 
 @Entity
 @Table(name = "hotels")
+
 public class Hotel extends AbstractBaseEntity{
 
     @Column(name = "name")
     private String name;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contact_id", nullable = false)
     private Contact contact;
 
@@ -22,6 +25,17 @@ public class Hotel extends AbstractBaseEntity{
     public Hotel(){
 
     }
+
+    public Hotel(Long id, String name, Contact contact) {
+        super(id);
+        this.name = name;
+        this.contact = contact;
+    }
+
+    public Hotel(String name, Contact contact) {
+        this(null, name, contact);
+    }
+
 
     public String getName() {
         return this.name;

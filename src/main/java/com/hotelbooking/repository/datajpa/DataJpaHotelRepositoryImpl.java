@@ -34,8 +34,4 @@ public class DataJpaHotelRepositoryImpl implements HotelRepository {
         return hotelRepository.findOne(id);
     }
 
-    @Override
-    public Hotel getByRoomId(Long roomId) {
-        return hotelRepository.getByRoomId(roomId);
-    }
 }

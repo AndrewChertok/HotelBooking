@@ -6,14 +6,16 @@ import com.hotelbooking.model.Reservation;
 import com.hotelbooking.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public abstract class ReservationAbstractController {
 
     @Autowired
     ReservationService reservationService;
 
 
-    Client create(Contact contact, Client client){
-       return reservationService.create(contact, client);
+    Client create(Contact contact, String firstName, String lastName){
+       return reservationService.create(contact, firstName, lastName);
     }
 
     Reservation bookRoom(Reservation reservation, String clientEmail, Long roomId){

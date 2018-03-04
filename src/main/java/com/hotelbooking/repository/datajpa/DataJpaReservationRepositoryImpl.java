@@ -47,12 +47,8 @@ public class DataJpaReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public Reservation getByClientId(Long clientId) {
-        return reservationRepository.getByClientId(clientId);
+    public Reservation getByClient(Long clientId) {
+        return reservationRepository.getByClient(clientId);
     }
 
-    @Override
-    public List<Reservation> getBetweenDates(Long hotelId, Date checkin, Date checkout) {
-        return reservationRepository.getBetweenDates(hotelId, checkin, checkout);
-    }
 }

@@ -24,7 +24,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Room> filterRoomsByCategory(Long hotelId, RoomType roomType) {
-        return roomRepository.getAllByHotel(hotelId).stream().
+         return roomRepository.getAllByHotel(hotelId).stream().
                 filter(room -> room.getRoomType() == roomType).
                 collect(Collectors.toList());
     }

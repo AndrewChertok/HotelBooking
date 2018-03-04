@@ -9,10 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public interface CrudClientRepository extends JpaRepository<Client, Long>{
 
+
     @Override
+    @Transactional
     Client save(Client client);
 
     @Override
+    @Transactional
     void delete(Long id);
 
     @Override

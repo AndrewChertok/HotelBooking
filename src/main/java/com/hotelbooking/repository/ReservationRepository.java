@@ -13,9 +13,7 @@ public interface ReservationRepository {
 
     Reservation get(Long id);
 
-    Reservation getByClientId(Long clientId);
+    Reservation getByClient(Long clientId);
 
     List<Reservation> getAllByHotel(Long hotelId);
-
-    List<Reservation> getBetweenDates(Long hotelId, Date checkin, Date checkout);
 }

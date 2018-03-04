@@ -1,5 +1,7 @@
 package com.hotelbooking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -17,13 +19,14 @@ public class Room extends AbstractBaseEntity{
     @Column(name = "price_per_night")
     private BigDecimal pricePerNight;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    //TODO to solve
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Hotel hotel;
 
     @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "room_type", joinColumns = @JoinColumn(name = "room_id"))
     @Column(name = "type")
     private RoomType roomType;
 
@@ -36,6 +39,20 @@ public class Room extends AbstractBaseEntity{
     public Room(){
 
     }
+
+    public Room(Long id, Integer number, BigDecimal pricePerNight, RoomType roomType, BigDecimal breakfast, BigDecimal cleaning) {
+        super(id);
+        this.number = number;
+        this.pricePerNight = pricePerNight;
+        this.roomType = roomType;
+        this.breakfast = breakfast;
+        this.cleaning = cleaning;
+    }
+
+    public Room(Integer number, BigDecimal pricePerNight, RoomType roomType, BigDecimal breakfast, BigDecimal cleaning) {
+        this(null, number, pricePerNight, roomType, breakfast, cleaning);
+    }
+
 
     public BigDecimal getPricePerNight() {
         return pricePerNight;

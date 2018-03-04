@@ -29,8 +29,9 @@ public class ReservationServiceImpl implements ReservationService{
    private ReservationRepository reservationRepository;
 
     @Override
-    public Client create(Contact contact, Client client) {
+    public Client create(Contact contact, String firstName, String lastName) {
        Contact currentContact = contactRepository.save(contact);
+       Client client = new Client(firstName, lastName);
         return clientRepository.save(client, currentContact.getId());
     }
 
@@ -43,17 +44,17 @@ public class ReservationServiceImpl implements ReservationService{
     @Override
     public Reservation getByClient(String clientEmail) {
         Client client = clientRepository.getByEmail(clientEmail);
-        return reservationRepository.getByClientId(client.getId());
+        return reservationRepository.getByClient(client.getId());
     }
 
     @Override
     public int getTotal(String clientEmail) {
         Client client = clientRepository.getByEmail(clientEmail);
-        Reservation reservation = reservationRepository.getByClientId(client.getId());
+        Reservation reservation = reservationRepository.getByClient(client.getId());
         Room room = reservation.getRoom();
 
-        Date checkin =  reservation.getCheckInDate();
-        Date checkout =  reservation.getCheckOutDate();
+        Date checkin =  reservation.getCheckIn();
+        Date checkout =  reservation.getCheckOut();
 
         long delta = checkout.getTime()- checkin.getTime();
         long days = TimeUnit.DAYS.convert(delta, TimeUnit.MILLISECONDS);

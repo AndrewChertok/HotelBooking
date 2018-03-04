@@ -1,9 +1,13 @@
 package com.hotelbooking.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum RoomType {
-    Single,
-    Double,
-    Triple,
-    Family,
-    Royal
+    SINGLE,
+    DOUBLE,
+    TRIPLE,
+    FAMILY,
+    ROYAL
+
 }

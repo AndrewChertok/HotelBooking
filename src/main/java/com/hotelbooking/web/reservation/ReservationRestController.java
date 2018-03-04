@@ -6,6 +6,8 @@ import com.hotelbooking.model.Reservation;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping(value = ReservationRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -13,10 +15,11 @@ public class ReservationRestController extends ReservationAbstractController{
 
     static final String REST_URL = "/rest/reservation";
 
+
     @Override
     @PostMapping(value = "/client",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Client create(@RequestBody Contact contact, @RequestBody Client client){
-        return super.create(contact, client);
+    public Client create(@RequestBody Contact contact, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName){
+        return super.create(contact, firstName, lastName);
     }
 
     @Override
@@ -26,8 +29,8 @@ public class ReservationRestController extends ReservationAbstractController{
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Reservation getByClient(@PathVariable("id") String clientEmail){
+    @GetMapping("/reserv")
+    public Reservation getByClient(@RequestParam("email") String clientEmail){
         return super.getByClient(clientEmail);
     }
 
