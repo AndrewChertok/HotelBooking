@@ -1,7 +1,10 @@
 package com.hotelbooking.repository.datajpa;
 
+import com.hotelbooking.data.ContactTestData;
+import com.hotelbooking.data.HotelTestData;
 import com.hotelbooking.model.Contact;
 import com.hotelbooking.model.Hotel;
+import com.hotelbooking.repository.AbstractRepositoryTest;
 import com.hotelbooking.repository.ContactRepository;
 import com.hotelbooking.repository.HotelRepository;
 import org.junit.After;
@@ -17,14 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static com.hotelbooking.data.HotelTestData.HOTEL1;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.hotelbooking.data.HotelTestData.MATCHER;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
-@Sql(scripts = "classpath:db/data.sql", config = @SqlConfig(encoding = "UTF-8"))
-public class HotelRepositoryImplTest {
+
+public class HotelRepositoryImplTest extends AbstractRepositoryTest {
 
     @Autowired
     private HotelRepository hotelRepository;
@@ -34,11 +34,11 @@ public class HotelRepositoryImplTest {
 
     @Test
     public void save() throws Exception {
-        Contact newContact  = new Contact("+44 753 444-33-22", "new@gamil.com", "Hermit st. 55 app.2", "London", "England");
+        Contact newContact  = ContactTestData.getCreated();
         Contact savedContact = contactRepository.save(newContact);
-        Hotel newHotel = new Hotel("The New", savedContact);
+        Hotel newHotel = HotelTestData.getCreated();
         Hotel savedHotel = hotelRepository.save(newHotel, savedContact.getId());
-        assertThat(newHotel.getName()).isEqualTo(savedHotel.getName());
+        MATCHER.assertEquals(newHotel, savedHotel);
     }
 
     @Test(expected = NullPointerException.class)
@@ -52,7 +52,7 @@ public class HotelRepositoryImplTest {
     @Test
     public void get() throws Exception {
         Hotel hotel = hotelRepository.get(HOTEL1_ID);
-        assertThat(HOTEL1.getName()).isEqualTo(hotel.getName());
+        MATCHER.assertEquals(HOTEL1, hotel);
     }
 
 }

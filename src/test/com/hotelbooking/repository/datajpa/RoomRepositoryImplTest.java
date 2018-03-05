@@ -2,6 +2,7 @@ package com.hotelbooking.repository.datajpa;
 
 import com.hotelbooking.data.RoomTestData;
 import com.hotelbooking.model.Room;
+import com.hotelbooking.repository.AbstractRepositoryTest;
 import com.hotelbooking.repository.HotelRepository;
 import com.hotelbooking.repository.RoomRepository;
 import org.junit.Test;
@@ -22,14 +23,10 @@ import static com.hotelbooking.TestUtil.toDate;
 import static com.hotelbooking.data.HotelTestData.HOTEL1;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;
 import static com.hotelbooking.data.RoomTestData.*;
-import static org.assertj.core.api.Assertions.assertThat;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
-@Sql(scripts = "classpath:db/data.sql", config = @SqlConfig(encoding = "UTF-8"))
-public class RoomRepositoryImplTest {
+
+public class RoomRepositoryImplTest extends AbstractRepositoryTest {
 
     @Autowired
     private RoomRepository roomRepository;
@@ -39,7 +36,7 @@ public class RoomRepositoryImplTest {
         Room newRoom = RoomTestData.getCreated();
         newRoom.setHotel(HOTEL1);
         Room savedRoom = roomRepository.save(newRoom, HOTEL1_ID);
-        assertThat(newRoom.getNumber()).isEqualTo(savedRoom.getNumber());
+        MATCHER.assertEquals(newRoom, savedRoom);
     }
 
     @Test(expected = JpaObjectRetrievalFailureException.class)
@@ -51,7 +48,7 @@ public class RoomRepositoryImplTest {
     @Test
     public void get() throws Exception {
         Room room = roomRepository.get(ROOM1_ID);
-        assertThat(room.getNumber()).isEqualTo(ROOM1.getNumber());
+        MATCHER.assertEquals(ROOM1, room);
     }
 
     @Test

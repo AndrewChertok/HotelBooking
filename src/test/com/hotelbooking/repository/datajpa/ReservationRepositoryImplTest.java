@@ -2,6 +2,7 @@ package com.hotelbooking.repository.datajpa;
 
 
 import com.hotelbooking.model.Reservation;
+import com.hotelbooking.repository.AbstractRepositoryTest;
 import com.hotelbooking.repository.ClientRepository;
 import com.hotelbooking.repository.ContactRepository;
 import com.hotelbooking.repository.ReservationRepository;
@@ -19,31 +20,29 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.hotelbooking.TestUtil.intToLong;
 import static com.hotelbooking.TestUtil.toDate;
 import static com.hotelbooking.data.ClientTestData.CLIENT1_ID;
 import static com.hotelbooking.data.ClientTestData.CLIENT2;
+import static com.hotelbooking.data.ContactTestData.CONTACT1;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;
 import static com.hotelbooking.data.ReservationTestData.*;
 import static com.hotelbooking.data.RoomTestData.ROOM1;
-import static org.assertj.core.api.Java6Assertions.assertThat;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
-@Sql(scripts = "classpath:db/data.sql", config = @SqlConfig(encoding = "UTF-8"))
-public class ReservationRepositoryImplTest {
+
+public class ReservationRepositoryImplTest extends AbstractRepositoryTest {
 
     @Autowired
     private ReservationRepository reservationRepository;
 
     @Test
     public void save() throws Exception {
-        Reservation newReservation = new Reservation( toDate("2020-02-20"),toDate("2020-02-25"),true, true);
+        Reservation newReservation = getCreated();
         newReservation.setClient(CLIENT2);
         newReservation.setRoom(ROOM1);
         Reservation savedReservation = reservationRepository.save(newReservation, CLIENT2.getId(), ROOM1.getId());
-        assertThat(savedReservation.getRoom().getNumber()).isEqualTo(newReservation.getRoom().getNumber());
+        MATCHER.assertEquals(savedReservation, newReservation);
     }
 
     @Test(expected = JpaObjectRetrievalFailureException.class)
@@ -55,7 +54,7 @@ public class ReservationRepositoryImplTest {
     @Test
     public void get() throws Exception {
        Reservation reservation = reservationRepository.get(RESERVATION1_ID);
-       assertThat(reservation.getRoom().getNumber()).isEqualTo(RESERVATION1.getRoom().getNumber());
+        MATCHER.assertEquals(reservation, RESERVATION1);
     }
 
     @Test
@@ -68,7 +67,7 @@ public class ReservationRepositoryImplTest {
     @Test
     public void getByClient() throws Exception {
         Reservation reservation = reservationRepository.getByClient(CLIENT1_ID);
-        assertThat(reservation.getRoom().getNumber()).isEqualTo(RESERVATION1.getRoom().getNumber());
+        MATCHER.assertEquals(reservation, RESERVATION1);
     }
 
 }

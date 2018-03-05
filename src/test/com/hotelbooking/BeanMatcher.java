@@ -1,8 +1,15 @@
 package com.hotelbooking;
 
 import org.junit.Assert;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.ResultMatcher;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 public class BeanMatcher<T> {
 
@@ -28,8 +35,6 @@ public class BeanMatcher<T> {
         return new BeanMatcher<>(entityClass, equality);
     }
 
-
-
     private class Wrapper {
         private T entity;
 
@@ -51,6 +56,8 @@ public class BeanMatcher<T> {
         }
     }
 
+
+
     public void assertEquals(T expected, T actual) {
         Assert.assertEquals(wrap(expected), wrap(actual));
     }
@@ -67,5 +74,19 @@ public class BeanMatcher<T> {
         return list.stream().map(this::wrap).collect(Collectors.toList());
     }
 
+    public static ResultActions print(ResultActions action) throws UnsupportedEncodingException {
+        System.out.println(getContent(action));
+        return action;
+    }
+
+    public static String getContent(ResultActions action) throws UnsupportedEncodingException {
+        return action.andReturn().getResponse().getContentAsString();
+    }
+
+
+
+    public static <T> ResultMatcher contentMatcher(T... expected) {
+        return contentMatcher(Arrays.asList(expected));
+    }
 
 }

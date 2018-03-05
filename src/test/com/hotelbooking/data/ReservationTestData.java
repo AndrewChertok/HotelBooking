@@ -15,8 +15,9 @@ import static com.hotelbooking.model.AbstractBaseEntity.START_SEQ;
 
 public class ReservationTestData {
 
-    public static final Long RESERVATION1_ID = intToLong(START_SEQ+22);
+    public static final Long RESERVATION1_ID = intToLong(START_SEQ + 22);
 
+    public static final int TOTAL_RESERVATION2 = 3000;
 
     public static Reservation RESERVATION1 = new Reservation(RESERVATION1_ID, toDate("2018-05-30"),toDate("2018-06-05"),false, false);
     public static Reservation RESERVATION2 = new Reservation(RESERVATION1_ID+1,toDate("2018-07-15"),toDate("2018-07-20"),true, false);
@@ -26,9 +27,9 @@ public class ReservationTestData {
 
     static{
         RESERVATION1.setClient(CLIENT1);
-        RESERVATION1.setClient(CLIENT2);
-        RESERVATION1.setClient(CLIENT3);
-        RESERVATION1.setClient(CLIENT4);
+        RESERVATION2.setClient(CLIENT2);
+        RESERVATION3.setClient(CLIENT3);
+        RESERVATION4.setClient(CLIENT4);
         RESERVATION1.setRoom(ROOM1);
         RESERVATION2.setRoom(ROOM4);
         RESERVATION3.setRoom(ROOM7);
@@ -46,8 +47,8 @@ public class ReservationTestData {
     public static final BeanMatcher<Reservation> MATCHER = BeanMatcher.of(Reservation.class,
             (expected, actual) -> expected == actual ||
                     (Objects.equals(expected.getId(), actual.getId())
-                                    && Objects.equals(expected.getCheckIn(), actual.getCheckIn())
-                                    && Objects.equals(expected.getCheckOut(), actual.getCheckOut())
+                                    && Objects.equals(expected.getCheckIn().getTime(), actual.getCheckIn().getTime())
+                                    && Objects.equals(expected.getCheckOut().getTime(), actual.getCheckOut().getTime())
                                     && Objects.equals(expected.getIsBreakfast(), actual.getIsBreakfast())
                                     && Objects.equals(expected.getIsCleaning(), actual.getIsCleaning())
                     )

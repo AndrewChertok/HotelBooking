@@ -1,10 +1,18 @@
 package com.hotelbooking;
 
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.RequestPostProcessor;
+
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 public class TestUtil {
 
@@ -26,4 +34,6 @@ public class TestUtil {
         }
         return null;
     }
+
+
 }
