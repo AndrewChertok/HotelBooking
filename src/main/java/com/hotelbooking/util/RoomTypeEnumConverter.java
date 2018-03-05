@@ -1,7 +1,6 @@
 package com.hotelbooking.util;
 
 import com.hotelbooking.model.RoomType;
-
 import java.beans.PropertyEditorSupport;
 
 

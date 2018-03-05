@@ -4,8 +4,6 @@ import com.hotelbooking.model.Client;
 import com.hotelbooking.model.Contact;
 import com.hotelbooking.model.Reservation;
 
-import java.util.List;
-
 public interface ReservationService {
 
     Client create(Contact contact, String firstName, String lastName);

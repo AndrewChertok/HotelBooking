@@ -7,17 +7,8 @@ import com.hotelbooking.model.Hotel;
 import com.hotelbooking.repository.AbstractRepositoryTest;
 import com.hotelbooking.repository.ContactRepository;
 import com.hotelbooking.repository.HotelRepository;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
 import static com.hotelbooking.data.HotelTestData.HOTEL1;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;
 import static com.hotelbooking.data.HotelTestData.MATCHER;
@@ -46,7 +37,6 @@ public class HotelRepositoryImplTest extends AbstractRepositoryTest {
         hotelRepository.delete(HOTEL1_ID);
         Hotel hotel = hotelRepository.get(HOTEL1_ID);
         hotel.getName();
-
     }
 
     @Test
@@ -54,5 +44,4 @@ public class HotelRepositoryImplTest extends AbstractRepositoryTest {
         Hotel hotel = hotelRepository.get(HOTEL1_ID);
         MATCHER.assertEquals(HOTEL1, hotel);
     }
-
 }

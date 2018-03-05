@@ -8,7 +8,6 @@ import com.hotelbooking.util.RoomTypeEnumConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-
 import java.util.Date;
 import java.util.List;
 

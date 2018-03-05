@@ -2,13 +2,10 @@ package com.hotelbooking.data;
 
 import com.hotelbooking.BeanMatcher;
 import com.hotelbooking.model.Hotel;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 import static com.hotelbooking.TestUtil.intToLong;
-import static com.hotelbooking.data.ContactTestData.CONTACT1_ID;
 import static com.hotelbooking.data.ContactTestData.CONTACT4;
 import static com.hotelbooking.data.ContactTestData.CONTACT5;
 import static com.hotelbooking.model.AbstractBaseEntity.START_SEQ;

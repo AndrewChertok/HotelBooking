@@ -1,13 +1,10 @@
 package com.hotelbooking.model;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hotelbooking.HasId;
 import org.hibernate.Hibernate;
-
 import javax.persistence.AccessType;
 import javax.persistence.*;
-import java.io.Serializable;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)

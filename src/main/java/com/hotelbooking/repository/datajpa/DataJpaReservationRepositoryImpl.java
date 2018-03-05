@@ -4,8 +4,6 @@ import com.hotelbooking.model.Reservation;
 import com.hotelbooking.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.Date;
 import java.util.List;
 
 

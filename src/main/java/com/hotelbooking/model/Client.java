@@ -1,8 +1,5 @@
 package com.hotelbooking.model;
 
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 

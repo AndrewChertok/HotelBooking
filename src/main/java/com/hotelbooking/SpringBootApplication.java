@@ -2,8 +2,6 @@ package com.hotelbooking;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.hotelbooking.model.RoomType;
-import com.hotelbooking.util.RoomTypeEnumConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
@@ -13,8 +11,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -53,8 +49,4 @@ public class SpringBootApplication {
                 new MappingJackson2HttpMessageConverter(mapper);
         return converter;
     }
-
-
-
-
 }

@@ -3,7 +3,6 @@ package com.hotelbooking.web.reservation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hotelbooking.data.ContactTestData;
 import com.hotelbooking.data.ReservationTestData;
-import com.hotelbooking.model.Client;
 import com.hotelbooking.model.Contact;
 import com.hotelbooking.model.Reservation;
 import com.hotelbooking.service.ReservationService;
@@ -13,13 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-
-
 import static com.hotelbooking.data.ClientTestData.*;
 import static com.hotelbooking.data.ContactTestData.CONTACT1;
 import static com.hotelbooking.data.RoomTestData.ROOM1_ID;

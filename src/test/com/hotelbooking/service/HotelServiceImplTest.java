@@ -6,12 +6,9 @@ import com.hotelbooking.model.Room;
 import com.hotelbooking.model.RoomType;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-
 import static com.hotelbooking.TestUtil.toDate;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;
 import static com.hotelbooking.data.ReservationTestData.RESERVATION1;

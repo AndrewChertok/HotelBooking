@@ -1,8 +1,6 @@
 package com.hotelbooking.repository;
 
 import com.hotelbooking.model.Reservation;
-
-import java.util.Date;
 import java.util.List;
 
 public interface ReservationRepository {

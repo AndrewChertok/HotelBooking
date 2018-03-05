@@ -6,8 +6,6 @@ import com.hotelbooking.model.Reservation;
 import com.hotelbooking.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 public abstract class ReservationAbstractController {
 
     @Autowired

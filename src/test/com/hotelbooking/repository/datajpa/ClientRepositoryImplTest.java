@@ -7,16 +7,8 @@ import com.hotelbooking.model.Contact;
 import com.hotelbooking.repository.AbstractRepositoryTest;
 import com.hotelbooking.repository.ClientRepository;
 import com.hotelbooking.repository.ContactRepository;
-
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
 import static com.hotelbooking.data.ClientTestData.CLIENT1;
 import static com.hotelbooking.data.ClientTestData.CLIENT1_ID;
 import static com.hotelbooking.data.ClientTestData.MATCHER;

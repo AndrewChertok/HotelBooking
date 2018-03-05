@@ -4,13 +4,9 @@ package com.hotelbooking.web.hotel;
 import com.hotelbooking.model.Reservation;
 import com.hotelbooking.model.Room;
 import com.hotelbooking.model.RoomType;
-import com.hotelbooking.util.RoomTypeEnumConverter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
 import java.util.List;
 

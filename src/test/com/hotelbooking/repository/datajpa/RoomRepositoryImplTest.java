@@ -3,22 +3,13 @@ package com.hotelbooking.repository.datajpa;
 import com.hotelbooking.data.RoomTestData;
 import com.hotelbooking.model.Room;
 import com.hotelbooking.repository.AbstractRepositoryTest;
-import com.hotelbooking.repository.HotelRepository;
 import com.hotelbooking.repository.RoomRepository;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-
 import static com.hotelbooking.TestUtil.toDate;
 import static com.hotelbooking.data.HotelTestData.HOTEL1;
 import static com.hotelbooking.data.HotelTestData.HOTEL1_ID;

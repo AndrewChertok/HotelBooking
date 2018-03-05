@@ -1,7 +1,6 @@
 package com.hotelbooking.repository;
 
 import com.hotelbooking.model.Room;
-
 import java.util.Date;
 import java.util.List;
 

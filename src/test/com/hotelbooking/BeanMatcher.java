@@ -3,13 +3,10 @@ package com.hotelbooking;
 import org.junit.Assert;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 public class BeanMatcher<T> {
 

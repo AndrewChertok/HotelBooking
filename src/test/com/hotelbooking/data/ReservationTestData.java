@@ -2,11 +2,9 @@ package com.hotelbooking.data;
 
 import com.hotelbooking.BeanMatcher;
 import com.hotelbooking.model.Reservation;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 import static com.hotelbooking.TestUtil.intToLong;
 import static com.hotelbooking.TestUtil.toDate;
 import static com.hotelbooking.data.ClientTestData.*;

@@ -1,14 +1,10 @@
 package com.hotelbooking.data;
 
-
-
 import com.hotelbooking.BeanMatcher;
 import com.hotelbooking.model.Client;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 import static com.hotelbooking.TestUtil.intToLong;
 import static com.hotelbooking.data.ContactTestData.*;
 import static com.hotelbooking.model.AbstractBaseEntity.START_SEQ;
@@ -44,10 +40,6 @@ public class ClientTestData {
                             && Objects.equals(expected.getFirstName(), actual.getFirstName())
                             && Objects.equals(expected.getLastName(), actual.getLastName()))
     );
-
-
-
-
 }
     
 

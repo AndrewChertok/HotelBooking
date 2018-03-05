@@ -8,7 +8,6 @@ import com.hotelbooking.model.Contact;
 import com.hotelbooking.model.Reservation;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import static com.hotelbooking.data.ClientTestData.CLIENT1;
 import static com.hotelbooking.data.ClientTestData.CLIENT2;
 import static com.hotelbooking.data.ContactTestData.CONTACT1;

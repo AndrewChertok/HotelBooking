@@ -1,8 +1,6 @@
 package com.hotelbooking.model;
 
 
-
-
 import javax.persistence.*;
 import java.util.Date;
 

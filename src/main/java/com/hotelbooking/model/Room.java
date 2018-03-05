@@ -1,10 +1,8 @@
 package com.hotelbooking.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -19,7 +17,6 @@ public class Room extends AbstractBaseEntity{
     @Column(name = "price_per_night")
     private BigDecimal pricePerNight;
 
-    //TODO to solve
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id", nullable = false)
