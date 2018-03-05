@@ -1,4 +1,3 @@
-[![VersionEye](https://www.versioneye.com/user/projects/59a7d7570fb24f003f742c66/badge.svg)](https://www.versioneye.com/user/projects/59a7d7570fb24f003f742c66)
 
 
 Hotel Booking 
