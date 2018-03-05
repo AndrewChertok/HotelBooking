@@ -26,14 +26,14 @@ public class Hotel extends AbstractBaseEntity{
 
     }
 
-    public Hotel(Long id, String name, Contact contact) {
+    public Hotel(Long id, String name) {
         super(id);
         this.name = name;
         this.contact = contact;
     }
 
-    public Hotel(String name, Contact contact) {
-        this(null, name, contact);
+    public Hotel(String name) {
+        this(null, name);
     }
 
 

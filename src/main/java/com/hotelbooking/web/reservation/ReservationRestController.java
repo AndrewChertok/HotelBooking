@@ -18,27 +18,27 @@ public class ReservationRestController extends ReservationAbstractController{
 
 
     @Override
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/client",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)  //create a client
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public Client create(@RequestBody Contact contact, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName){
         return super.create(contact, firstName, lastName);
     }
 
     @Override
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)  //create reservation by existing client
     @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Reservation bookRoom(@RequestBody Reservation reservation, @RequestParam("email") String clientEmail, @PathVariable("id") Long roomId){
         return super.bookRoom(reservation, clientEmail, roomId);
     }
 
     @Override
-    @GetMapping
+    @GetMapping  //client can check reservation using email
     public Reservation getByClient(@RequestParam("email") String clientEmail){
         return super.getByClient(clientEmail);
     }
 
     @Override
-    @GetMapping("/total")
+    @GetMapping("/total") //get the total price of booking using client's email
     public int getTotal(@RequestParam("email") String clientEmail){
         return  super.getTotal(clientEmail);
     }

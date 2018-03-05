@@ -30,11 +30,11 @@ public class SpringBootApplication {
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:file:C:/SQL/sample");
+        dataSource.setUrl("jdbc:h2:mem:booking;DB_CLOSE_DELAY=-1");
         dataSource.setUsername("admin");
         dataSource.setPassword("admin");
 
-        // schema init
+
         Resource initSchema = new ClassPathResource("db/schema.sql");
         Resource initData = new ClassPathResource("db/data.sql");
         DatabasePopulator databasePopulator = new ResourceDatabasePopulator(initSchema, initData);
