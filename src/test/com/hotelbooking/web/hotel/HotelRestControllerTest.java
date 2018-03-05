@@ -30,7 +30,6 @@ public class HotelRestControllerTest {
     @MockBean
     private HotelService hotelService;
 
-
     @Test
     public void getAvailableRooms() throws Exception {
         mvc.perform(get(REST_URL+HOTEL1_ID)
@@ -38,7 +37,6 @@ public class HotelRestControllerTest {
                 .param("out","2018-07-19"))
                 .andExpect(status().isOk())
                 .andDo(print());
-
     }
 
     @Test
