@@ -5,7 +5,7 @@ Hotel Booking
 ===============================
 #Functional web application "Hotel Booking"
 
-##Using the application, you will be able to
+#Using the application, you will be able to
 
 1. **Look through the list of available numbers (in the room there is room, category, price, additional options, for example breakfast, cleaning for an additional fee).**
 
@@ -54,7 +54,7 @@ $ java -jar target/hotelbooking.jar
 
 ## Rooms handling
 
-###All booked rooms by specific hotel
+##All booked rooms by specific hotel
 - <a href="http://localhost:8080/rest/hotel/booked/1006">by hotel № 1</a>
 - <a href="http://localhost:8080/rest/hotel/booked/1007">by hotel № 2</a>
 
@@ -66,7 +66,7 @@ CURL:
      curl http://localhost:8080/rest/hotel/booked/1007
 
 
-###All available rooms by specific dates and specific hotel
+##All available rooms by specific dates and specific hotel
 - <a href="http://localhost:8080/rest/hotel/1006?in=2018-07-12&out=2018-07-23">by hotel № 1</a>
 - <a href="http://localhost:8080/rest/hotel/1007?in=2018-07-12&out=2018-07-23">by hotel № 2</a>
 
@@ -78,7 +78,7 @@ CURL:
     # available rooms by dates and hotel №2
         curl http://localhost:8080/rest/hotel/1007?in=2018-07-12&out=2018-07-23
 
-###All rooms by specific hotel filter by room type
+##All rooms by specific hotel filter by room type
 - <a href="http://localhost:8080/rest/hotel/filter/1006?type=royal">by hotel number 1 type: royal</a>
 - <a href="http://localhost:8080/rest/hotel/filter/1007?type=single">by hotel number 2 type: single</a>
 
@@ -95,7 +95,7 @@ CURL:
 ## Reservation handling
 
 
-###Client can view own reservation using email
+##Client can view own reservation using email
 - <a href="http://localhost:8080/rest/reservation/?email=good@gmail.com">reservation for "Samatha Good"</a>
 - <a href="http://localhost:8080/rest/reservation/?email=river@gmail.com">reservation for "John River</a>
 
@@ -109,7 +109,7 @@ CURL:
 
 
 
-###Client can check total price of reservation using email
+##Client can check total price of reservation using email
 - <a href="http://localhost:8080/rest/reservation/total?email=good@gmail.com">total costs for "Samatha Good"</a>
 - <a href="http://localhost:8080/rest/reservation/total?email=river@gmail.com">total costs for "John River</a>
 
@@ -134,7 +134,7 @@ CURL:
     curl –X POST -d '{"phone":"+44 713 335-55-12", "email":"somebody@gmail.com","address":"Hermit st. 3 app.77","city":"London","country":"England"}' -H 'Content-Type:application/json' http://localhost:8080/rest/reservation?firstName=Somebody&lastName=Unknown
     
 
-### Create a reservation
+## Create a reservation
 
 
 CURL:
