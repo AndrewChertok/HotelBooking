@@ -1,24 +1,35 @@
 package com.hotelbooking.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "contacts", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}, name = "unique_email_idx")})
 public class Contact extends AbstractBaseEntity{
 
+    @NotBlank
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "email")
+    @Email
+    @NotBlank
+    @Size(max = 100)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "address")
+    @NotBlank
+    @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "city")
+    @NotBlank
+    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "country")
+    @NotBlank
+    @Column(name = "country", nullable = false)
     private String country;
 
     public Contact(){

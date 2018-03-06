@@ -2,6 +2,7 @@ package com.hotelbooking.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
@@ -17,17 +18,18 @@ public class Reservation extends AbstractBaseEntity{
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @Column(name = "in_date")
+    @NotNull
+    @Column(name = "in_date", nullable = false)
     private Date checkIn;
 
-
-    @Column(name = "out_date")
+    @NotNull
+    @Column(name = "out_date", nullable = false)
     private Date checkOut;
 
-    @Column(name = "breakfast")
+    @Column(name = "breakfast", nullable = false)
     private Boolean isBreakfast;
 
-    @Column(name = "cleaning")
+    @Column(name = "cleaning", nullable = false)
     private Boolean isCleaning;
 
     public Reservation(){

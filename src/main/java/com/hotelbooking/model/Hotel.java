@@ -1,6 +1,8 @@
 package com.hotelbooking.model;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,7 +12,8 @@ import java.util.List;
 
 public class Hotel extends AbstractBaseEntity{
 
-    @Column(name = "name")
+    @NotBlank
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToOne(fetch = FetchType.LAZY)

@@ -3,7 +3,10 @@ package com.hotelbooking.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 
@@ -11,10 +14,13 @@ import java.math.BigDecimal;
 @Table(name = "rooms")
 public class Room extends AbstractBaseEntity{
 
-    @Column(name = "number")
+    @Column(name = "number", nullable = false)
+    @Range(min = 1, max = 10000)
+    @NotNull
     private Integer number;
 
-    @Column(name = "price_per_night")
+    @NotNull
+    @Column(name = "price_per_night", nullable = false)
     private BigDecimal pricePerNight;
 
     @JsonIgnore
@@ -27,10 +33,12 @@ public class Room extends AbstractBaseEntity{
     @Column(name = "type")
     private RoomType roomType;
 
-    @Column(name = "breakfast")
+    @NotNull
+    @Column(name = "breakfast", nullable = false)
     private BigDecimal breakfast;
 
-    @Column(name = "cleaning")
+    @NotNull
+    @Column(name = "cleaning", nullable = false)
     private BigDecimal cleaning;
 
     public Room(){

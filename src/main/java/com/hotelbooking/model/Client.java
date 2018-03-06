@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Table(name = "clients")
 public class Client extends AbstractBaseEntity{
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     @NotBlank
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     @NotBlank
     private String lastName;
 
